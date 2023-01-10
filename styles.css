@@ -5,45 +5,67 @@ html {
 
 body {
     display: flex;
-    height: 100vw;
-    width: 100vw;
-    border: 2px solid green;
+    height: 100%;
+    width: 100%;
+    border: 6px solid blue;
+    justify-content: space-between;
+}
+
+main {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
     justify-content: space-around;
+    border: 6px solid yellow;
 }
 
 h1 {
     display: flex;
-    border: 2px solid green;
+    border: 4px solid green;
 }
 
 h2 {
     display: flex;
-    border: 2px solid green;
+    border: 4px solid green;
 }
 
 .version-selector {
     display: flex;
-    border: 2px solid green;
+    flex-direction: column;
+    border: 4px solid pink;
+    align-items: center;
 }
 
 
 .game-rules {
     display: flex;
-    border: 2px solid green;
+    border: 4px solid black;
+}
+
+ul {
+    border: 4px solid orange;
+    padding: 0; 
 }
 
 .win-counter {
     display: flex;
-    border: 2px solid green;
+    border: 4px solid orangered;
     flex-direction: column;
     align-items: center;
+    width: 18vw;
 }
 
 .human-sidebar {
+    border: 6px solid purple;
     display: flex;
     order: -1;
 }
 
 .comp-sidebar {
+    border: 6px solid darkcyan;
     display: flex;
+}
+
+p {
+    border: 4px solid slateblue;
 }
