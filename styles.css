@@ -1,0 +1,49 @@
+html {
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    display: flex;
+    height: 100vw;
+    width: 100vw;
+    border: 2px solid green;
+    justify-content: space-around;
+}
+
+h1 {
+    display: flex;
+    border: 2px solid green;
+}
+
+h2 {
+    display: flex;
+    border: 2px solid green;
+}
+
+.version-selector {
+    display: flex;
+    border: 2px solid green;
+}
+
+
+.game-rules {
+    display: flex;
+    border: 2px solid green;
+}
+
+.win-counter {
+    display: flex;
+    border: 2px solid green;
+    flex-direction: column;
+    align-items: center;
+}
+
+.human-sidebar {
+    display: flex;
+    order: -1;
+}
+
+.comp-sidebar {
+    display: flex;
+}
