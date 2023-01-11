@@ -1,17 +1,32 @@
 class Game {
-    constructor() {
+    constructor(classOrDiff) {
         this.playerOne = new Player('computer')
         this.playerTwo = new Player('human')
+        this.gameType = classOrDiff;
+        if (classOrDiff === 'classic') {
+            this.rules = {
+                'rock > scissors': true,
+                'scissors > rock': false,
+                'scissors > paper': true,
+                'paper > scissors': false,
+                'rock > paper': false,
+                'paper > rock': true,
+        }
+        }
     }
 
     whoWon() {
         this.playerOne.takeTurn()
         this.playerTwo.takeTurn()
+        console.log(`player one fighter: ${this.playerOne.fighter}`)
+        console.log(`player two fighter: ${this.playerTwo.fighter}`)
         this.gameBoard = [this.playerOne.fighter, this.playerTwo.fighter]
-        if (this.gameBoard[0] > this.gameBoard[1]) {
+        if (this.rules[`${this.gameBoard[0]} > ${this.gameBoard[1]}`]) {
             this.playerOne.wins += 1;
-        } else if (this.gameBoard[0] < this.gameBoard[1]) {
+            return;
+        } else if (this.rules[`${this.gameBoard[0]} > ${this.gameBoard[1]}`] === false) {
             this.playerTwo.wins += 1;
+            return;
         } else {
             return 'You tied!'
         }

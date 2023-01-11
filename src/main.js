@@ -1,17 +1,7 @@
 var fighters = ['rock', 'paper', 'scissors']
 
-var rockVScissors = 'rock' > 'scissors';
-var scissorsVRock = 'scissors' > 'rock'
-var scissorsVPaper = 'scissors' > 'paper';
-var paperVScissors = 'paper' > 'scissors'
-var rockVPaper = 'rock' > 'paper'
-var paperVRock = 'paper' > 'rock';
+var game1 = new Game('classic');
 
-scissorsVRock = false;
-rockVScissors = true;
-paperVScissors = false;
-scissorsVPaper = true;
-rockVPaper = false;
-paperVRock = true;
-
-var game1 = new Game();
+game1.whoWon()
+console.log(`player one wins: ${game1.playerOne.wins}`)
+console.log(`player two wins: ${game1.playerTwo.wins}`)
