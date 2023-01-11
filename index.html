@@ -16,8 +16,8 @@
         <section class="version-selector">
             <h1>Choose your game</h1>
             <form>
-                <div class ="version-selector-classic">
-                    <h2 class="selector-headings">CLASSIC</h2>
+                <div class="version-selector-classic">
+                    <h2 class="selector-headings" id="version-selector-classic">CLASSIC</h2>
                     <ul>
                         <li>rock > scissors</li>
                         <li>paper > rock</li>
@@ -25,11 +25,13 @@
                     </ul>
                 </div>
                 <div class="version-selector-difficult">
-                    <h2 class="selector-headings">DIFFICULT</h2>
+                    <h2 class="selector-headings" id="version-selector-difficult">DIFFICULT</h2>
                     <ul>
-                        <li>rock > scissors</li>
-                        <li>paper > rock</li>
-                        <li>scissors > paper</li>
+                        <li>Wanda > Thor & Spiderman</li>
+                        <li>Captain marvel > Wanda & Thor</li>
+                        <li>Spiderman > Hulk & Captain Marvel</li>
+                        <li>Thor > Spiderman & Hulk</li>
+                        <li>Hulk > Captain Marvel & Wanda</li>
                     </ul>
                 </div>
             </form>
@@ -39,14 +41,14 @@
         <div class="win-counter">
             <span class="material-symbols-outlined">person</span>
             <h2>Human</h2>
-            <p>Wins: 0</p>
+            <p id="human-win-counter">Wins: 0</p>
         </div>
     </section>
     <section class="comp-sidebar">
         <div class="win-counter">
             <span class="material-symbols-outlined">smart_toy</span>
             <h2>Computer</h2>
-            <p>Wins: 0</p>
+            <p id="comp-win-counter">Wins: 0</p>
         </div>
     </section>
     <script type="text/javascript" src="./src/data.js"></script>
