@@ -1,0 +1,31 @@
+var classicRules = {
+    'rock > scissors': true,
+    'scissors > rock': false,
+    'scissors > paper': true,
+    'paper > scissors': false,
+    'rock > paper': false,
+    'paper > rock': true,
+};
+
+var difficultRules = {
+    'Wanda > Thor': true,
+    'Thor > Wanda': false,
+    'Captain Marvel > Wanda': true,
+    'Wanda > Captain Marvel': false,
+    'Hulk > Wanda': true,
+    'Wanda > Hulk': false,
+    'Wanda > Spiderman': true,
+    'Spiderman > Wanda': false,
+    'Captain Marvel > Thor': true,
+    'Thor > Captain Marvel': false,
+    'Thor > Hulk': true,
+    'Hulk > Thor': false,
+    'Thor > Spiderman': true,
+    'Spiderman > Thor': false,
+    'Hulk > Captain Marvel': true,
+    'Captain Marvel > Hulk': false,
+    'Spiderman > Captain Marvel': true,
+    'Captain Marvel > Spiderman': false,
+    'Spiderman > Hulk': true,
+    'Hulk > Spiderman': false,
+};

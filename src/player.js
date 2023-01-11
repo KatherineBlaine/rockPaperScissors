@@ -9,11 +9,11 @@ class Player {
         }
     }
 
-    takeTurn(humanChoice) {
+    takeTurn(humanChoice, compArray) {
         if (this.name === 'human') {
             this.fighter = humanChoice;
         } else if (this.name === 'computer') {
-            this.fighter = fighters[[Math.floor(Math.random() * fighters.length)]]
+            this.fighter = compArray[[Math.floor(Math.random() * compArray.length)]];
         }
     }
 }
