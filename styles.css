@@ -1,42 +1,77 @@
+
+
 html {
+    font-family: 'Bebas Neue';
     height: 100vh;
-    width: 100vw;
+    color:#097968;
 }
 
 body {
     display: flex;
-    height: 100vw;
-    width: 100vw;
-    border: 2px solid green;
-    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    background-color: antiquewhite;
+    width: 64vw;
+    border-left: 15px solid white;
+    border-right:15px solid white;
 }
 
 h1 {
+    font-size: 30px;
     display: flex;
-    border: 2px solid green;
+    justify-content: center;
 }
 
 h2 {
     display: flex;
-    border: 2px solid green;
+    justify-content: center;
+    font-size: 28px;
+    margin: 0;
+}
+
+.heading-1 {
+    font-size: 50px;
 }
 
 .version-selector {
     display: flex;
-    border: 2px solid green;
+    flex-direction: column;
+    margin-top: 13vh;
 }
 
-
-.game-rules {
+.version-selector-classic, .version-selector-difficult {
     display: flex;
-    border: 2px solid green;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+    background-color: #FFFFA7;
+    color: #C8A2C8 !important;
+    width: 200px;
+    padding: 10px;
+    height: 200px;
+    border-radius: 5px;
+}
+
+.version-selector-classic {
+    margin-right: 35px;
+}
+
+ul {
+    font-size: 20px;
+    list-style: none;
+    font-family: 'Hind';
 }
 
 .win-counter {
     display: flex;
-    border: 2px solid green;
     flex-direction: column;
     align-items: center;
+    width: 18vw;
+    background-color:#097968;
+    color: antiquewhite;
 }
 
 .human-sidebar {
@@ -46,4 +81,22 @@ h2 {
 
 .comp-sidebar {
     display: flex;
+}
+
+.material-symbols-outlined {
+    margin-top: 30px;
+    font-size: 55px !important;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    font-size: 25px;
+}
+
+.selector-headings {
+    font-size: 30px;
 }
