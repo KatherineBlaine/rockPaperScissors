@@ -1,0 +1,1 @@
+var fighters = ['rock', 'paper', 'scissors']
