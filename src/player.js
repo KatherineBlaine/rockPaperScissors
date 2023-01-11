@@ -9,9 +9,9 @@ class Player {
         }
     }
 
-    takeTurn() {
+    takeTurn(humanChoice) {
         if (this.name === 'human') {
-            this.fighter = 'rock';
+            this.fighter = humanChoice;
         } else if (this.name === 'computer') {
             this.fighter = fighters[[Math.floor(Math.random() * fighters.length)]]
         }

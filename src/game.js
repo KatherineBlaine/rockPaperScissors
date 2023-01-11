@@ -15,9 +15,9 @@ class Game {
         }
     }
 
-    whoWon() {
+    whoWon(humanChoice) {
         this.playerOne.takeTurn()
-        this.playerTwo.takeTurn()
+        this.playerTwo.takeTurn(humanChoice)
         this.gameBoard = [this.playerOne.fighter, this.playerTwo.fighter]
         if (this.rules[`${this.gameBoard[0]} > ${this.gameBoard[1]}`]) {
             this.playerOne.wins += 1;
