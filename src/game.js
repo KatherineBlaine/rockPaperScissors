@@ -1,26 +1,24 @@
 class Game {
     constructor(classOrDiff) {
-        this.playerOne = new Player('computer')
-        this.playerTwo = new Player('human')
+        this.playerOne = new Player('computer');
+        this.playerTwo = new Player('human');
         this.gameType = classOrDiff;
         if (this.gameType === 'classic') {
-            this.rules = classicRules
+            this.rules = classicRules;
         } else {
-            this.rules = difficultRules
+            this.rules = difficultRules;
         }
     }
 
     createGameBoard(humanChoice) {
+        this.playerTwo.takeTurn(humanChoice, null);
         if (this.gameType === 'classic') {
-            this.playerOne.takeTurn(null, classicFighters)
-            this.playerTwo.takeTurn(humanChoice)
-            this.gameBoard = [this.playerOne.fighter, this.playerTwo.fighter] 
+            this.playerOne.takeTurn(null, classicFighters);
+            this.gameBoard = [this.playerOne.fighter, this.playerTwo.fighter];
         } else if (this.gameType === 'difficult') {
             this.playerOne.takeTurn(null, heroFighters)
-            this.playerTwo.takeTurn(humanChoice)
             this.gameBoard = [this.playerOne.fighter, this.playerTwo.fighter] 
           }
-
     }
 
     playGame() {
@@ -29,9 +27,9 @@ class Game {
             return 'Computer Wins!'
         } else if (this.rules[`${this.gameBoard[0]} > ${this.gameBoard[1]}`] === false) {
             this.playerTwo.wins += 1;
-            return 'You Win!'
+            return 'You Win!';
         } else {
-            return 'You tied!'
+            return 'You tied!';
         }
     }
 

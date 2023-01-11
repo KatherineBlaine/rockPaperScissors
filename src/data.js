@@ -5,7 +5,7 @@ var classicRules = {
     'paper > scissors': false,
     'rock > paper': false,
     'paper > rock': true,
-}
+};
 
 var difficultRules = {
     'Wanda > Thor': true,
@@ -28,4 +28,4 @@ var difficultRules = {
     'Captain Marvel > Spiderman': false,
     'Spiderman > Hulk': true,
     'Hulk > Spiderman': false,
-}
+};

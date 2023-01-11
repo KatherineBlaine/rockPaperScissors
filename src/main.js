@@ -1,7 +1,15 @@
-var classicFighters = ['rock', 'paper', 'scissors']
-var heroFighters = ['Wanda', 'Thor', 'Captain Marvel', 'Hulk', 'Spiderman']
+var classicFighters = ['rock', 'paper', 'scissors'];
+var heroFighters = ['Wanda', 'Thor', 'Captain Marvel', 'Hulk', 'Spiderman'];
 
-var game1 = new Game('classic')
+
+
+
+
+
+
+
+// Test Game on Data Model code:
+// var game1 = new Game('classic')
 var game2 = new Game('difficult')
 
 // game1.createGameBoard('scissors')
@@ -13,7 +21,7 @@ var game2 = new Game('difficult')
 // console.log('player2 wins:', game1.playerTwo.wins)
 
 game2.createGameBoard('Wanda')
-console.log(this.gameBoard)
+console.log(game2.gameBoard)
 game2.playGame()
 console.log('player1 fighter:', game2.playerOne.fighter)
 console.log('player2 fighter:', game2.playerTwo.fighter)

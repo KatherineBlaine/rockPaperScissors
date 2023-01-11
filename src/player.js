@@ -13,7 +13,7 @@ class Player {
         if (this.name === 'human') {
             this.fighter = humanChoice;
         } else if (this.name === 'computer') {
-            this.fighter = compArray[[Math.floor(Math.random() * compArray.length)]]
+            this.fighter = compArray[[Math.floor(Math.random() * compArray.length)]];
         }
     }
 }
