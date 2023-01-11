@@ -1,4 +1,4 @@
-
+/* Styling for the entire document */
 
 html {
     font-family: 'Bebas Neue';
@@ -10,16 +10,6 @@ body {
     display: flex;
     height: 100%;
     width: 100%;
-}
-
-main {
-    background-color: antiquewhite;
-    width: 64vw;
-    border-left: 15px solid white;
-    border-right: 15px solid white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 h1 {
@@ -36,14 +26,24 @@ h2 {
     font-size: 40px;
 }
 
+/* Styling for the main section - middle */
+
+main {
+    background-color: antiquewhite;
+    width: 64vw;
+    border-left: 15px solid white;
+    border-right: 15px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .heading-1 {
     font-size: 75px;
     color:#097968;
 }
 
 .version-selector {
-    display: flex;
-    flex-direction: column;
     background-color: white;
     width: 43vw;
     height: 50vh;
@@ -65,11 +65,18 @@ h2 {
     margin-right: 35px;
 }
 
+form {
+    display: flex;
+    justify-content: center;
+}
+
 ul {
     font-size: 20px;
     list-style: none;
     font-family: 'Sofia Sans';
 }
+
+/* Styling for the side-bars (comp = right and human = left) */
 
 .win-counter {
     display: flex;
@@ -95,15 +102,6 @@ ul {
     color: #FFFFA7;
 }
 
-form {
-    display: flex;
-    justify-content: center;
-}
-
 p {
     font-size: 30px;
-}
-
-.selector-headings {
-    font-size: 35px;
 }
