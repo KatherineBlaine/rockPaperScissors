@@ -16,43 +16,49 @@ main {
     background-color: antiquewhite;
     width: 64vw;
     border-left: 15px solid white;
-    border-right:15px solid white;
+    border-right: 15px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
-    font-size: 30px;
+    font-size: 40px;
     display: flex;
     justify-content: center;
+    color:#C8A2C8;
 }
 
 h2 {
     display: flex;
     justify-content: center;
-    font-size: 28px;
     margin: 0;
+    font-size: 40px;
 }
 
 .heading-1 {
-    font-size: 50px;
+    font-size: 75px;
+    color:#097968;
 }
 
 .version-selector {
     display: flex;
     flex-direction: column;
-    margin-top: 13vh;
+    background-color: white;
+    width: 43vw;
+    height: 50vh;
+    border-radius: 7px;
 }
 
 .version-selector-classic, .version-selector-difficult {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 20px;
     background-color: #FFFFA7;
-    color: #C8A2C8 !important;
     width: 200px;
     padding: 10px;
     height: 200px;
-    border-radius: 5px;
+    border-radius: 7px;
 }
 
 .version-selector-classic {
@@ -62,7 +68,7 @@ h2 {
 ul {
     font-size: 20px;
     list-style: none;
-    font-family: 'Hind';
+    font-family: 'Sofia Sans';
 }
 
 .win-counter {
@@ -86,6 +92,7 @@ ul {
 .material-symbols-outlined {
     margin-top: 30px;
     font-size: 55px !important;
+    color: #FFFFA7;
 }
 
 form {
@@ -94,9 +101,9 @@ form {
 }
 
 p {
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .selector-headings {
-    font-size: 30px;
+    font-size: 35px;
 }
