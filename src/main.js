@@ -13,6 +13,8 @@ var chooseGameHeading = document.getElementById('choose-game-heading')
 // classic game board
 var classicGameBoard = document.getElementById('classic-game-board')
 
+// difficult
+var difficultGameBoard = document.getElementById('difficult-game-board')
 
 // Sidebar Elements:
 var compWinCount = document.getElementById('comp-win-counter');
@@ -31,7 +33,7 @@ function show(element) {
 
   hide(gameTypeForm)
   hide(chooseGameHeading)
-  show(classicGameBoard)
+  show(difficultGameBoard)
 
 
 // Test Game on Data Model code:
