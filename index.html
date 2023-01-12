@@ -13,19 +13,23 @@
 <body>
     <main>
         <h1 class="heading-1">Rock Paper Scissors</h1>
-        <section class="game-board">
+        <section class="nav hidden" id="nav">
+            <button id="change-game-button">Change game mode</button>
+            <button id="reset-game-button">Reset scores</button>
+        </section>
+        <section class="game-board" id="game-board">
             <h1 id="game-board-heading">Choose your game</h1>
             <form id="game-type-form">
-                <div class="version-selector-classic" id="version-selector-classic">
-                    <h2 class="selector-headings">CLASSIC</h2>
+                <div class="version-selector-classic">
+                    <h2 class="selector-headings" id="classic-version-heading">CLASSIC</h2>
                     <ul>
                         <li>rock > scissors</li>
                         <li>paper > rock</li>
                         <li>scissors > paper</li>
                     </ul>
                 </div>
-                <div class="version-selector-difficult" id="version-selector-difficult">
-                    <h2 class="selector-headings">DIFFICULT</h2>
+                <div class="version-selector-difficult">
+                    <h2 class="selector-headings" id="difficult-version-heading">DIFFICULT</h2>
                     <ul>
                         <li>Wanda > Thor & Spiderman</li>
                         <li>Captain marvel > Wanda & Thor</li>
@@ -35,6 +39,8 @@
                     </ul>
                 </div>
             </form>
+        </section>
+        <section>
             <form class="game-board hidden" id="classic-game-board">
                 <img class ="fighter-icons" src="./assets/black-and-white-rocks.png" alt="rock">
                 <img class ="fighter-icons" src="./assets/black-and-white-paper.png" alt="rock">

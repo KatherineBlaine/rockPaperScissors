@@ -45,11 +45,13 @@ main {
 .heading-1 {
     font-size: 75px;
     color:#097968;
+    margin: 25px;
 }
 
 .game-board {
     width: 55vw;
-    height: 50vh;
+    height: fit-content;
+    padding: 15px;
     border-radius: 7px;
     background-color: white;
 }
@@ -116,3 +118,15 @@ p {
     width: 150px;
 }
 
+
+button {
+    margin-bottom: 25px;
+    margin-top: 25px;
+    height: 45px;
+    width: 175px;
+    font-family: 'Sofia Sans';
+    background-color: #097968;
+    color:white;
+    border-radius: 7px;
+    font-size: 16px;
+}

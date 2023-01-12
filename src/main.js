@@ -5,10 +5,11 @@ var heroFighters = ['Wanda', 'Thor', 'Captain Marvel', 'Hulk', 'Spiderman'];
 
 // central game board
 
-var classicSelector = document.getElementById('version-selector-classic');
-var difficultSelector = document.getElementById('version-selector-difficult');
+var classicSelector = document.getElementById('classic-version-heading');
+var difficultSelector = document.getElementById('difficult-version-heading');
 var gameTypeForm = document.getElementById('game-type-form')
 var gameBoardHeading = document.getElementById('game-board-heading')
+var gameBoard = document.getElementById('game-board')
 
 var versionSelector = document.getElementById('game-type-form')
 
@@ -18,6 +19,9 @@ var classicGameBoard = document.getElementById('classic-game-board')
 // difficult
 var difficultGameBoard = document.getElementById('difficult-game-board')
 
+var navButtons = document.getElementById('nav')
+var changeGameButton = document.getElementById('change-game-button')
+
 // Sidebar Elements:
 var compWinCount = document.getElementById('comp-win-counter');
 var humanWinCount = document.getElementById('human-win-counter');
@@ -26,20 +30,36 @@ var humanWinCount = document.getElementById('human-win-counter');
 
 classicSelector.addEventListener('click', selectClassic)
 difficultSelector.addEventListener('click', selectDifficult)
+changeGameButton.addEventListener('click', function(event) {
+    changeGameMode(event)})
 
 // Event handlers:
 
 function selectClassic() {
     hide(gameTypeForm)
+    console.log(event.target.parentNode.className)
     show(classicGameBoard)
+    show(navButtons)
     gameBoardHeading.innerText = 'Choose your fighter'
 };
 
 function selectDifficult() {
     hide(gameTypeForm)
     show(difficultGameBoard)
+    show(navButtons)
     gameBoardHeading.innerText = 'Choose your fighter'
 };
+
+function changeGameMode(event) {
+    if (event.target.parentNode.className === 'version-selector-classic') {
+        console.log('hello')
+        show(gameTypeForm)
+        hide(classicGameBoard)
+    } else {
+        show(gameTypeForm)
+        hide(difficultGameBoard)
+    }
+}
 
 
 // Hide and Show functions:
