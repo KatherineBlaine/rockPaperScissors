@@ -69,7 +69,6 @@ main {
     
 }
 
-
 form {
     display: flex;
     justify-content: center;
@@ -93,7 +92,7 @@ ul {
     color: antiquewhite;
 }
 
-.human-sidebar {
+#human-sidebar {
     display: flex;
     order: -1;
 }

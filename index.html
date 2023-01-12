@@ -8,13 +8,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
 </head>
 <body>
     <main>
         <h1 class="heading-1">Rock Paper Scissors</h1>
         <section class="game-board">
-            <h1 id="choose-game-heading">Choose your game</h1>
+            <h1 id="game-board-heading">Choose your game</h1>
             <form id="game-type-form">
                 <div class="version-selector-classic" id="version-selector-classic">
                     <h2 class="selector-headings">CLASSIC</h2>
@@ -35,42 +35,35 @@
                     </ul>
                 </div>
             </form>
-            <section class="g">
-                <h1>Choose your fighter</h1>
-                <form class="hidden" id="classic-game-board">
-                    <img class ="fighter-icons" src="./assets/black-and-white-rocks.png" alt="rock">
-                    <img class ="fighter-icons" src="./assets/black-and-white-paper.png" alt="rock">
-                    <img class ="fighter-icons" src="./assets/black-and-white-scissors.png" alt="rock">
-                </form>
-                <form class="hidden" id="difficult-game-board">
-                    <img class="fighter-icons" src="./assets/wanda.png" alt="rock">
-                    <img class="fighter-icons" src="./assets/hulk.png" alt="rock">
-                    <img class="fighter-icons" src="./assets/thor.png" alt="rock">
-                    <img class="fighter-icons" src="./assets/spiderman.png" alt="rock">
-                    <img class="fighter-icons" src="./assets/captainmarvel.png" alt="rock">
-                </form>
-            </section>
+            <form class="game-board hidden" id="classic-game-board">
+                <img class ="fighter-icons" src="./assets/black-and-white-rocks.png" alt="rock">
+                <img class ="fighter-icons" src="./assets/black-and-white-paper.png" alt="rock">
+                <img class ="fighter-icons" src="./assets/black-and-white-scissors.png" alt="rock">
+            </form>
+            <form class="game-board hidden" id="difficult-game-board">
+                <img class="fighter-icons" src="./assets/wanda.png" alt="rock">
+                <img class="fighter-icons" src="./assets/hulk.png" alt="rock">
+                <img class="fighter-icons" src="./assets/thor.png" alt="rock">
+                <img class="fighter-icons" src="./assets/spiderman.png" alt="rock">
+                <img class="fighter-icons" src="./assets/captainmarvel.png" alt="rock">
+            </form>
         </section>
     </main>
-    <section class="human-sidebar">
-        <div class="win-counter">
+    <section class="win-counter" id="human-sidebar">
             <span class="material-symbols-outlined">person</span>
             <h2>Human</h2>
             <p id="human-win-counter">Wins: 0</p>
-        </div>
     </section>
-    <section class="comp-sidebar">
-        <div class="win-counter">
+    <section class="win-counter" id="comp-sidebar">
             <span class="material-symbols-outlined">smart_toy</span>
             <h2>Computer</h2>
             <p id="comp-win-counter">Wins: 0</p>
-        </div>
     </section>
+
     <script type="text/javascript" src="./src/data.js"></script>
     <script type="text/javascript" src="./src/player.js"></script>
     <script type="text/javascript" src="./src/game.js"></script>
-    <script type="text/javascript" src="./src/main.js"></script>
-    
+    <script type="text/javascript" src="./src/main.js"></script> 
 </body>
 
 </html>
