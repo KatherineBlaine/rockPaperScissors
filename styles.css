@@ -26,6 +26,10 @@ h2 {
     font-size: 40px;
 }
 
+.hidden {
+    display: none !important;
+}
+
 /* Styling for the main section - middle */
 
 main {
@@ -43,7 +47,7 @@ main {
     color:#097968;
 }
 
-.version-selector {
+.game-board {
     width: 55vw;
     height: 50vh;
     border-radius: 7px;
@@ -106,4 +110,9 @@ ul {
 
 p {
     font-size: 30px;
+}
+
+.fighter-icons {
+    height: 150px;
+    width: 150px;
 }
