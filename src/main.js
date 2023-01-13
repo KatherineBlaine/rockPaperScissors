@@ -21,10 +21,18 @@ var changeGameButton = document.getElementById('change-game-button')
 var compWinCount = document.getElementById('comp-win-counter');
 var humanWinCount = document.getElementById('human-win-counter');
 
+// Test variables:
+var fighterIcons = document.querySelectorAll('.fighter-icons')
+
+
 // Event listeners:
 gameTypeForm.addEventListener('click', function() {
     selectGame(event)})
 changeGameButton.addEventListener('click', changeGameMode)
+classicGameBoard.addEventListener('click', function(event){
+    displayHumanFighter(event)
+    displayCompFighter()
+    currentGame.playGame()})
 
 // Event handlers:
 function selectGame(event) {
@@ -51,6 +59,24 @@ function changeGameMode() {
         show(gameTypeForm)
         hide(difficultGameBoard)
     }
+}
+
+function displayHumanFighter(event) {
+    currentGame.createGameBoard(event.target.id)
+    for (var i=0; i < fighterIcons.length; i++) {
+        if (event.target.id === fighterIcons[i].id) {
+            event.target.parentNode.innerHTML = `<img class ="fighter-choice" id="${event.target.id}"src="${event.target.src}" alt="${event.target.alt}">`
+        }
+     }
+    }
+     
+function displayCompFighter() {
+    var computerChoice = currentGame.playerOne.fighter
+    for (var i=0; i < fighterIcons.length; i++) {
+        if (computerChoice === fighterIcons[i].id) {
+            classicGameBoard.innerHTML += `<img class ="fighter-choice" id="${computerChoice}"src="./assets/${computerChoice}.png" alt="${computerChoice.alt}">`
+        }
+     }
 }
 
 // Hide and Show functions:
