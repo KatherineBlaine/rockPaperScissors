@@ -1,5 +1,6 @@
 var classicFighters = ['rock', 'paper', 'scissors'];
 var heroFighters = ['Wanda', 'Thor', 'Captain Marvel', 'Hulk', 'Spiderman'];
+var currentGame;
 
 // DOM elements:
 
@@ -30,16 +31,15 @@ var humanWinCount = document.getElementById('human-win-counter');
 
 classicSelector.addEventListener('click', selectClassic)
 difficultSelector.addEventListener('click', selectDifficult)
-changeGameButton.addEventListener('click', function(event) {
-    changeGameMode(event)})
+changeGameButton.addEventListener('click', changeGameMode)
 
 // Event handlers:
 
 function selectClassic() {
     hide(gameTypeForm)
-    console.log(event.target.parentNode.className)
     show(classicGameBoard)
     show(navButtons)
+    currentGame = 'classic'
     gameBoardHeading.innerText = 'Choose your fighter'
 };
 
@@ -47,11 +47,12 @@ function selectDifficult() {
     hide(gameTypeForm)
     show(difficultGameBoard)
     show(navButtons)
+    currentGame = 'difficult'
     gameBoardHeading.innerText = 'Choose your fighter'
 };
 
-function changeGameMode(event) {
-    if (event.target.parentNode.className === 'version-selector-classic') {
+function changeGameMode() {
+    if (currentGame === 'classic') {
         console.log('hello')
         show(gameTypeForm)
         hide(classicGameBoard)
@@ -60,6 +61,7 @@ function changeGameMode(event) {
         hide(difficultGameBoard)
     }
 }
+
 
 
 // Hide and Show functions:
