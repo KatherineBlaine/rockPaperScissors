@@ -56,7 +56,7 @@ main {
     background-color: white;
 }
 
-.version-selector-classic, .version-selector-difficult {
+.version-selector {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -129,4 +129,10 @@ button {
     color:white;
     border-radius: 7px;
     font-size: 16px;
+}
+
+.fighter-choice {
+    display: flex;
+    height: 200px;
+    width: 200px;
 }

@@ -28,7 +28,7 @@ class Game {
         } else if (this.rules[`${this.gameBoard[0]} > ${this.gameBoard[1]}`] === false) {
             this.playerTwo.wins += 1;
             return 'You Win!';
-        } else {
+        } else if (this.gameBoard[0] === this.gameBoard[1]){
             return 'You tied!';
         }
     }
