@@ -48,14 +48,6 @@ main {
     margin: 25px;
 }
 
-.game-board {
-    width: 55vw;
-    height: fit-content;
-    padding: 15px;
-    border-radius: 7px;
-    background-color: white;
-}
-
 .version-selector {
     display: flex;
     flex-direction: column;
@@ -131,8 +123,19 @@ button {
     font-size: 16px;
 }
 
+.fighter-choices {
+    display: flex;
+    justify-content: space-evenly;
+    width: 60vw;
+}
+
 .fighter-choice {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.choice-icon {
     height: 200px;
     width: 200px;
 }

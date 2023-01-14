@@ -84,10 +84,13 @@ function displayHumanFighter(event) {
     currentGame.createGameBoard(event.target.id)
     for (var i=0; i < fighterIcons.length; i++) {
         if (event.target.id === fighterIcons[i].id && currentGame.gameType === 'classic') {
-           chosenFightersClassic.innerHTML = `<img class="fighter-choice" id="${event.target.id}"src="${event.target.src}" alt="${event.target.alt}">`
+           chosenFightersClassic.innerHTML = `<section class="fighter-choice"> <p>${currentGame.playerTwo.token}</p> <img class="choice-icon" id="${event.target.id}"src="${event.target.src}" alt="${event.target.alt}">
+           </section>`
            show(chosenFightersClassic)
         } else if (event.target.id === fighterIcons[i].id && currentGame.gameType === 'difficult'){
-            chosenFightersDifficult.innerHTML = `<img class="fighter-choice" id="${event.target.id}"src="${event.target.src}" alt="${event.target.alt}">`
+            chosenFightersDifficult.innerHTML = `<section class="fighter-choice"> <p>${currentGame.playerTwo.token}</p>
+            <img class="choice-icon" id="${event.target.id}"src="${event.target.src}" alt="${event.target.alt}">
+            </section>`
             show(chosenFightersDifficult)
         }
      }
@@ -97,9 +100,11 @@ function displayCompFighter() {
     var computerChoice = currentGame.playerOne.fighter
     for (var i=0; i < fighterIcons.length; i++) {
         if (computerChoice === fighterIcons[i].id && currentGame.gameType === 'classic') {
-            chosenFightersClassic.innerHTML += `<img class="fighter-choice" id="${computerChoice}"src="./assets/${computerChoice}.png" alt="${computerChoice.alt}">`
+            chosenFightersClassic.innerHTML += `<section class="fighter-choice"><p>${currentGame.playerOne.token}</p> <img class="choice-icon" id="${computerChoice}"src="./assets/${computerChoice}.png" alt="${computerChoice.alt}"></section>`
+            show(chosenFightersClassic)
         } else if (computerChoice === fighterIcons[i].id && currentGame.gameType === 'difficult') {
-            chosenFightersDifficult.innerHTML += `<img class="fighter-choice" id="${computerChoice}"src="./assets/${computerChoice}.png" alt="${computerChoice.alt}">`
+            chosenFightersDifficult.innerHTML += `<section class="fighter-choice"><p>${currentGame.playerOne.token}</p> <img class="choice-icon" id="${computerChoice}"src="./assets/${computerChoice}.png" alt="${computerChoice.alt}"></section>`
+            show(chosenFightersDifficult)
         }
      }
     gameBoardHeading.innerText = `${currentGame.playGame()}` 
@@ -125,7 +130,7 @@ function resetBoard() {
 function resetScores() {
     currentGame.playerOne.wins = 0;
     currentGame.playerTwo.wins = 0;
-    updateWinCount();
+    updateWinCount()
 }
 
 // Hide and Show functions:
