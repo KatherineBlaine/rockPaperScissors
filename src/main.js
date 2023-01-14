@@ -16,6 +16,7 @@ var navButtons = document.getElementById('nav')
 var changeGameButton = document.getElementById('change-game-button')
 var chosenFightersClassic = document.getElementById('classic-fighter-choices')
 var chosenFightersDifficult = document.getElementById('difficult-fighter-choices')
+var resetButton = document.getElementById('reset-game-button')
 
 // Sidebar Elements -
 var compWinCount = document.getElementById('comp-win-counter');
@@ -38,6 +39,7 @@ gameBoards.addEventListener('click', function(event){
     updateWinCount()
     setTimeout(resetBoard, 3000)
     })
+resetButton.addEventListener('click', resetScores)
 
 // Event handlers:
 function newGame(event) {
@@ -118,6 +120,13 @@ function resetBoard() {
     }
     show(navButtons)
     gameBoardHeading.innerText = 'Chose your fighter'
+}
+
+function resetScores() {
+    currentGame.playerOne.wins = 0;
+    currentGame.playerTwo.wins = 0;
+    updateWinCount();
+}
 
 // Hide and Show functions:
 
