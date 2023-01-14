@@ -2,6 +2,8 @@
 var classicFighters = ['rock', 'paper', 'scissors'];
 var heroFighters = ['wanda', 'thor', 'captainMarvel', 'hulk', 'spiderman'];
 var currentGame;
+var compWinCount;
+var humanWinCount;
 
 // DOM elements:
 
@@ -17,10 +19,13 @@ var changeGameButton = document.getElementById('change-game-button')
 var chosenFightersClassic = document.getElementById('classic-fighter-choices')
 var chosenFightersDifficult = document.getElementById('difficult-fighter-choices')
 var resetButton = document.getElementById('reset-game-button')
+var body = document.body
 
 // Sidebar Elements -
-var compWinCount = document.getElementById('comp-win-counter');
-var humanWinCount = document.getElementById('human-win-counter');
+var compProfile = document.getElementById('comp-sidebar')
+var humanProfile = document.getElementById('human-sidebar')
+// var compWinCount = document.getElementById('comp-win-counter');
+// var humanWinCount = document.getElementById('human-win-counter');
 
 // Test variables:
 var fighterIcons = document.querySelectorAll('.fighter-icons')
@@ -28,6 +33,9 @@ var gameBoards = document.getElementById('game-boards')
 
 
 // Event listeners:
+window.addEventListener('load', function() {
+    currentGame = new Game()
+    displayPlayerProfiles()})
 gameTypeForm.addEventListener('click', function(event) {
     newGame(event)
     displayGameBoard()})
@@ -36,17 +44,33 @@ gameBoards.addEventListener('click', function(event){
     displayHumanFighter(event)
     displayCompFighter()
     displayFighterBoard()
-    updateWinCount()
+    displayPlayerProfiles()
     setTimeout(resetBoard, 3000)
     })
-resetButton.addEventListener('click', resetScores)
 
 // Event handlers:
+
+function displayPlayerProfiles() {
+   humanProfile.innerHTML = `
+   <section class="win-counter" id="human-sidebar">
+   <p>${currentGame.playerTwo.token}</p>
+   <h2>${currentGame.playerTwo.name}</h2>
+   <p id="human-win-counter">Wins: ${currentGame.playerTwo.wins}</p>
+   </section>`
+   compProfile.innerHTML =`
+   <section class="win-counter" id="comp-sidebar"><p>${currentGame.playerOne.token}</p>
+   <h2>${currentGame.playerOne.name}</h2>
+   <p id="comp-win-counter">Wins: ${currentGame.playerOne.wins}</p>
+   </section>`
+   compWinCount = currentGame.playerOne.wins;
+   humanWinCount = currentGame.playerTwo.wins;
+}
+
 function newGame(event) {
     if (event.target.parentNode.id === 'classic-selector') {
-        currentGame = new Game('classic');
+        currentGame.chooseGameMode('classic')
     } else if (event.target.parentNode.id === 'difficult-selector'){
-        currentGame = new Game('difficult');
+        currentGame.chooseGameMode('difficult')
     }
 }
 
@@ -125,12 +149,6 @@ function resetBoard() {
     }
     show(navButtons)
     gameBoardHeading.innerText = 'Chose your fighter'
-}
-
-function resetScores() {
-    currentGame.playerOne.wins = 0;
-    currentGame.playerTwo.wins = 0;
-    updateWinCount()
 }
 
 // Hide and Show functions:
