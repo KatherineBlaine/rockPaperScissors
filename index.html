@@ -8,52 +8,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
 </head>
 <body>
     <main>
         <h1 class="heading-1">Rock Paper Scissors</h1>
-        <section class="version-selector">
-            <h1>Choose your game</h1>
-            <form>
-                <div class ="version-selector-classic">
-                    <h2 class="selector-headings">CLASSIC</h2>
-                    <ul>
-                        <li>rock > scissors</li>
-                        <li>paper > rock</li>
-                        <li>scissors > paper</li>
-                    </ul>
+        <section class="nav hidden" id="nav">
+            <button id="change-game-button">Change game mode</button>
+            <button id="reset-game-button">Reset scores</button>
+        </section>
+        <section class="game-board" id="game-board">
+            <h1 id="game-board-heading">Choose your game</h1>
+            <form id="game-type-form">
+                <div class="version-selector" id="classic-selector">
+                    <h2 class="selector-headings" id="classic-version-heading">CLASSIC</h2>
+                    <li>rock > scissors</li>
+                    <li>paper > rock</li>
+                    <li>scissors > paper</li>
                 </div>
-                <div class="version-selector-difficult">
-                    <h2 class="selector-headings">DIFFICULT</h2>
-                    <ul>
-                        <li>rock > scissors</li>
-                        <li>paper > rock</li>
-                        <li>scissors > paper</li>
-                    </ul>
+                <div class="version-selector" id="difficult-selector">
+                    <h2 class="selector-headings" id="difficult-version-heading">DIFFICULT</h2>
+                    <li>Wanda > Thor & Spiderman</li>
+                    <li>Captain marvel > Wanda & Thor</li>
+                    <li>Spiderman > Hulk & Captain Marvel</li>
+                    <li>Thor > Spiderman & Hulk</li>
+                    <li>Hulk > Captain Marvel & Wanda</li>
                 </div>
             </form>
         </section>
+        <section id="game-boards">
+            <form class="game-board hidden" id="classic-game-board">
+                <img class ="fighter-icons" id="rock"src="./assets/rock.png" alt="rock">
+                <img class ="fighter-icons" id="paper" src="./assets/paper.png" alt="paper">
+                <img class ="fighter-icons" id="scissors" src="./assets/scissors.png" alt="scissors">
+            </form>
+            <section class="fighter-choice hidden" id="classic-fighter-choices"></section>
+            <form class="game-board hidden" id="difficult-game-board">
+                <img class="fighter-icons" id="wanda" src="./assets/wanda.png" alt="rock">
+                <img class="fighter-icons" id="hulk" src="./assets/hulk.png" alt="rock">
+                <img class="fighter-icons" id="thor" src="./assets/thor.png" alt="rock">
+                <img class="fighter-icons" id="spiderman" src="./assets/spiderman.png" alt="rock">
+                <img class="fighter-icons" id="captainMarvel" src="./assets/captainmarvel.png" alt="rock">
+            </form>
+            <section class="fighter-choice hidden" id="difficult-fighter-choices"></section>
+        </section>
     </main>
-    <section class="human-sidebar">
-        <div class="win-counter">
+    <section class="win-counter" id="human-sidebar">
             <span class="material-symbols-outlined">person</span>
             <h2>Human</h2>
-            <p>Wins: 0</p>
-        </div>
+            <p id="human-win-counter">Wins: 0</p>
     </section>
-    <section class="comp-sidebar">
-        <div class="win-counter">
+    <section class="win-counter" id="comp-sidebar">
             <span class="material-symbols-outlined">smart_toy</span>
             <h2>Computer</h2>
-            <p>Wins: 0</p>
-        </div>
+            <p id="comp-win-counter">Wins: 0</p>
     </section>
+
     <script type="text/javascript" src="./src/data.js"></script>
     <script type="text/javascript" src="./src/player.js"></script>
     <script type="text/javascript" src="./src/game.js"></script>
-    <script type="text/javascript" src="./src/main.js"></script>
-    
+    <script type="text/javascript" src="./src/main.js"></script> 
 </body>
 
 </html>

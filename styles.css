@@ -26,6 +26,10 @@ h2 {
     font-size: 40px;
 }
 
+.hidden {
+    display: none !important;
+}
+
 /* Styling for the main section - middle */
 
 main {
@@ -41,20 +45,21 @@ main {
 .heading-1 {
     font-size: 75px;
     color:#097968;
+    margin: 25px;
 }
 
-.version-selector {
-    width: 43vw;
-    height: 50vh;
+.game-board {
+    width: 55vw;
+    height: fit-content;
+    padding: 15px;
     border-radius: 7px;
     background-color: white;
 }
 
-.version-selector-classic, .version-selector-difficult {
+.version-selector {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 200px;
     padding: 10px;
     height: 200px;
     border-radius: 7px;
@@ -63,6 +68,7 @@ main {
 
 .version-selector-classic {
     margin-right: 35px;
+    
 }
 
 form {
@@ -71,8 +77,9 @@ form {
 }
 
 ul {
+    width: 300px;
     list-style: none;
-    font-size: 20px;
+    font-size: 18px;
     font-family: 'Sofia Sans';
 }
 
@@ -87,7 +94,7 @@ ul {
     color: antiquewhite;
 }
 
-.human-sidebar {
+#human-sidebar {
     display: flex;
     order: -1;
 }
@@ -104,4 +111,28 @@ ul {
 
 p {
     font-size: 30px;
+}
+
+.fighter-icons {
+    height: 150px;
+    width: 150px;
+}
+
+
+button {
+    margin-bottom: 25px;
+    margin-top: 25px;
+    height: 45px;
+    width: 175px;
+    font-family: 'Sofia Sans';
+    background-color: #097968;
+    color:white;
+    border-radius: 7px;
+    font-size: 16px;
+}
+
+.fighter-choice {
+    display: flex;
+    height: 200px;
+    width: 200px;
 }
