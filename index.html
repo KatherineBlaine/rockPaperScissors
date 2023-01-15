@@ -1,56 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bebas+Neue">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia+Sans">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-</head>
-<body>
+  </head>
+  <body>
     <main>
-        <h1 class="heading-1">Rock Paper Scissors</h1>
-        <section id="game-board">
-            <h1 id="game-board-heading">Choose your game</h1>
-            <form class="game-type-form" id="game-type-form">
-                <div class="version-selector" id="classic-selector">
-                    <h2 class="selector-headings" id="classic-version-heading">CLASSIC</h2>
-                    <li>rock > scissors</li>
-                    <li>paper > rock</li>
-                    <li>scissors > paper</li>
-                </div>
-                <div class="version-selector" id="difficult-selector">
-                    <h2 class="selector-headings" id="difficult-version-heading">DIFFICULT</h2>
-                    <li>Wanda > Thor & Spiderman</li>
-                    <li>Captain marvel > Wanda & Thor</li>
-                    <li>Spiderman > Hulk & Captain Marvel</li>
-                    <li>Thor > Spiderman & Hulk</li>
-                    <li>Hulk > Captain Marvel & Wanda</li>
-                </div>
-            </form>
-        </section>
-        <section class="game-board" id="game-boards">
-            <form class="game-board hidden" id="classic-game-board">
-                <img class="fighter-icons" id="rock"src="./assets/rock.png" alt="rock">
-                <img class="fighter-icons" id="paper" src="./assets/paper.png" alt="paper">
-                <img class="fighter-icons" id="scissors" src="./assets/scissors.png" alt="scissors">
-            </form>
-            <section class="fighter-choices hidden" id="classic-fighter-choices"></section>
-            <form class="game-board hidden" id="difficult-game-board">
-                <img class="fighter-icons" id="wanda" src="./assets/wanda.png" alt="rock">
-                <img class="fighter-icons" id="hulk" src="./assets/hulk.png" alt="rock">
-                <img class="fighter-icons" id="thor" src="./assets/thor.png" alt="rock">
-                <img class="fighter-icons" id="spiderman" src="./assets/spiderman.png" alt="rock">
-                <img class="fighter-icons" id="captainMarvel" src="./assets/captainmarvel.png" alt="rock">
-            </form>
-            <section class="fighter-choices hidden" id="difficult-fighter-choices"></section>
-        </section>
+      <h1 class="heading-1">Rock Paper Scissors</h1>
+      <section class="game-board" id="game-board">
+        <h1 id="game-board-heading">Choose your game</h1>
+          <form class="game-type-form" id="game-type-form">
+            <section class="version-selector classic" id="classic-selector">
+              <h2 class="selector-headings classic" id="classic-version-heading">CLASSIC</h2>
+                <li class="classic">rock > scissors</li>
+                <li class="classic">paper > rock</li>
+                <li class="classic">scissors > paper</li>
+            </section>
+            <section class="version-selector difficult" id="difficult-selector">
+              <h2 class="selector-headings difficult" id="difficult-version-heading">DIFFICULT</h2>
+                <li class="difficult">Wanda > Thor & Spiderman</li>
+                <li class="difficult">Captain Marvel > Wanda & Thor</li>
+                <li class="difficult">Spiderman > Hulk & Captain Marvel</li>
+                <li class="difficult">Thor > Spiderman & Hulk</li>
+                <li class="difficult">Hulk > Captain Marvel & Wanda</li>
+            </section>
+          </form>
+      </section>
+      <section class="game-board" id="game-boards">
+        <form class="game-board hidden" id="classic-game-board">
+          <img class="fighter-icons" id="rock"src="./assets/rock.png" alt="rock">
+          <img class="fighter-icons" id="paper" src="./assets/paper.png" alt="paper">
+          <img class="fighter-icons" id="scissors" src="./assets/scissors.png" alt="scissors">
+        </form>
+        <form class="game-board hidden" id="difficult-game-board">
+          <img class="fighter-icons" id="wanda" src="./assets/wanda.png" alt="rock">
+          <img class="fighter-icons" id="hulk" src="./assets/hulk.png" alt="rock">
+          <img class="fighter-icons" id="thor" src="./assets/thor.png" alt="rock">
+          <img class="fighter-icons" id="spiderman" src="./assets/spiderman.png" alt="rock">
+          <img class="fighter-icons" id="captainMarvel" src="./assets/captainmarvel.png" alt="rock">
+        </form>
+        <section class="fighter-choices hidden" id="fighter-choices"></section>
+      </section>
     </main>
-    <section class="win-counter" id="human-sidebar">
-    </section>
+    <section class="win-counter" id="human-sidebar"></section>
     <section class="win-counter" id="comp-sidebar"></section>
 
     <script type="text/javascript" src="./src/data.js"></script>

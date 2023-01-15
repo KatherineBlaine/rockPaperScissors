@@ -1,5 +1,3 @@
-/* Styling for the entire document */
-
 html {
     height: 100vh;
     font-family: 'Bebas Neue';
@@ -15,7 +13,7 @@ body {
 h1 {
     display: flex;
     justify-content: center;
-    font-size: 40px;
+    font-size: 45px;
     color:#C8A2C8;
 }
 
@@ -30,8 +28,6 @@ h2 {
     display: none !important;
 }
 
-/* Styling for the main section - middle */
-
 main {
     display: flex;
     flex-direction: column;
@@ -40,12 +36,6 @@ main {
     border-left: 15px solid white;
     border-right: 15px solid white;
     background-color: antiquewhite;
-}
-
-.game-type-form {
-    display: flex;
-    width: 60vw;
-    justify-content: space-evenly !important;
 }
 
 .heading-1 {
@@ -58,31 +48,25 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 10px;
-    height: 200px;
-    width: 275px;
+    width: 320px;
+    height: 250px;
     border-radius: 7px;
     border: 5px solid #FFFFA7;
 }
 
-.version-selector:hover {
-    background-color:#C8A2C8;
-    color:#FFFFA7;
-}
-
 form {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    width: 60vw;
 }
 
-ul {
-    width: 300px;
+li {
     list-style: none;
-    font-size: 18px;
     font-family: 'Sofia Sans';
+    font-size: 18px;
 }
-
-/* Styling for the side-bars (comp = right and human = left) */
 
 .win-counter {
     display: flex;
@@ -94,12 +78,7 @@ ul {
 }
 
 #human-sidebar {
-    display: flex;
     order: -1;
-}
-
-.comp-sidebar {
-    display: flex;
 }
 
 .material-symbols-outlined {
@@ -113,14 +92,10 @@ p {
 }
 
 .fighter-icons {
-    height: 150px;
-    width: 150px;
+    margin-top: 50px;
+    height: 200px;
+    width: 200px;
 }
-
-.fighter-icons:hover {
-    border: 5px solid #fcfcb0;
-}
-
 
 button {
     margin-bottom: 25px;
@@ -132,10 +107,6 @@ button {
     color:white;
     border-radius: 7px;
     font-size: 16px;
-}
-
-button:hover {
-    background-color: #19a48f;
 }
 
 .fighter-choices {
@@ -155,7 +126,22 @@ button:hover {
     width: 200px;
 }
 
-li {
-    list-style: none;
-    font-family: 'Sofia Sans';
+button:hover {
+    background-color: #19a48f;
+}
+
+.fighter-icons:hover {
+    border: 5px solid #fcfcb0;
+    border-radius: 5px;
+}
+
+button, 
+.version-selector,
+.fighter-icons {
+    cursor: pointer;
+}
+
+.version-selector:hover {
+    background-color:#C8A2C8;
+    color:#FFFFA7;
 }

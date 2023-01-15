@@ -31,9 +31,10 @@ class Game {
         this.gameType = classOrDiff;
         if (this.gameType === 'classic') {
             this.rules = classicRules;
-        } else {
+        } else if (this.gameType === 'difficult'){
             this.rules = difficultRules;
         }
+        return this.gameType;
     }
 
 
