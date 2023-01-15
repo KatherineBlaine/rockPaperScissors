@@ -2,8 +2,6 @@
 var classicFighters = ['rock', 'paper', 'scissors'];
 var heroFighters = ['wanda', 'thor', 'captainMarvel', 'hulk', 'spiderman'];
 var currentGame;
-var compWinCount;
-var humanWinCount;
 
 // DOM elements:
 
@@ -30,6 +28,9 @@ var humanProfile = document.getElementById('human-sidebar')
 // Test variables:
 var fighterIcons = document.querySelectorAll('.fighter-icons')
 var gameBoards = document.getElementById('game-boards')
+
+var selectorHeadings = document.querySelectorAll('.selector-headings')
+console.log(selectorHeadings)
 
 
 // Event listeners:
@@ -62,8 +63,6 @@ function displayPlayerProfiles() {
    <h2>${currentGame.playerOne.name}</h2>
    <p id="comp-win-counter">Wins: ${currentGame.playerOne.wins}</p>
    </section>`
-   compWinCount = currentGame.playerOne.wins;
-   humanWinCount = currentGame.playerTwo.wins;
 }
 
 function newGame(event) {
