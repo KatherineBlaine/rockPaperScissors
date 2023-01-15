@@ -62,7 +62,7 @@ main {
     height: 200px;
     width: 275px;
     border-radius: 7px;
-    background-color: #FFFFA7;
+    border: 5px solid #FFFFA7;
 }
 
 .version-selector:hover {

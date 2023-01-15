@@ -8,30 +8,20 @@ var currentGame;
 // Home page elements -
 var gameTypeForm = document.getElementById('game-type-form')
 var gameBoardHeading = document.getElementById('game-board-heading')
+var selectorHeadings = document.querySelectorAll('.selector-headings')
 
 // Game board elements -
+var changeGameButton;
 var classicGameBoard = document.getElementById('classic-game-board')
 var difficultGameBoard = document.getElementById('difficult-game-board')
-var navButtons = document.getElementById('nav')
-var changeGameButton = document.getElementById('change-game-button')
 var chosenFightersClassic = document.getElementById('classic-fighter-choices')
 var chosenFightersDifficult = document.getElementById('difficult-fighter-choices')
-var resetButton = document.getElementById('reset-game-button')
-var body = document.body
+var fighterIcons = document.querySelectorAll('.fighter-icons')
+var gameBoards = document.getElementById('game-boards')
 
 // Sidebar Elements -
 var compProfile = document.getElementById('comp-sidebar')
 var humanProfile = document.getElementById('human-sidebar')
-// var compWinCount = document.getElementById('comp-win-counter');
-// var humanWinCount = document.getElementById('human-win-counter');
-
-// Test variables:
-var fighterIcons = document.querySelectorAll('.fighter-icons')
-var gameBoards = document.getElementById('game-boards')
-
-var selectorHeadings = document.querySelectorAll('.selector-headings')
-console.log(selectorHeadings)
-
 
 // Event listeners:
 window.addEventListener('load', function() {
@@ -40,7 +30,6 @@ window.addEventListener('load', function() {
 gameTypeForm.addEventListener('click', function(event) {
     newGame(event)
     displayGameBoard()})
-changeGameButton.addEventListener('click', changeGameMode)
 gameBoards.addEventListener('click', function(event){
     displayHumanFighter(event)
     displayCompFighter()
@@ -57,12 +46,16 @@ function displayPlayerProfiles() {
    <p>${currentGame.playerTwo.token}</p>
    <h2>${currentGame.playerTwo.name}</h2>
    <p id="human-win-counter">Wins: ${currentGame.playerTwo.wins}</p>
-   </section>`
+   <button class="change-game-button hidden" id="change-game-button">Change game mode</button></section>`
    compProfile.innerHTML =`
    <section class="win-counter" id="comp-sidebar"><p>${currentGame.playerOne.token}</p>
    <h2>${currentGame.playerOne.name}</h2>
    <p id="comp-win-counter">Wins: ${currentGame.playerOne.wins}</p>
    </section>`
+   changeGameButton = document.getElementById('change-game-button');
+   humanProfile.addEventListener('click', function(event){
+    changeGameMode(event)
+   })
 }
 
 function newGame(event) {
@@ -76,26 +69,29 @@ function newGame(event) {
 function displayGameBoard() {
     if (currentGame.gameType === 'classic') {
         show(classicGameBoard)
-    } else {
+        hide(gameTypeForm)
+        show(changeGameButton)
+        gameBoardHeading.innerText = 'Choose your fighter'
+    } else if(currentGame.gameType === 'difficult'){
         show(difficultGameBoard)
+        show(classicGameBoard)
+        hide(gameTypeForm)
+        show(changeGameButton)
+        gameBoardHeading.innerText = 'Choose your fighter'
     }
-    show(navButtons)
-    hide(gameTypeForm)
-    gameBoardHeading.innerText = 'Choose your fighter'
 }
 
-function changeGameMode() {
-    if (currentGame.gameType === 'classic') {
+function changeGameMode(event) {
+    if (event.target.id === 'change-game-button' && currentGame.gameType === 'classic') {
         show(gameTypeForm)
         hide(classicGameBoard)
-    } else {
+    } else if (event.target.id === 'change-game-button' && currentGame.gameType === 'difficult') {
         show(gameTypeForm)
         hide(difficultGameBoard)
     }
 }
 
 function displayFighterBoard() {
-    hide(navButtons)
     if (currentGame.gameType === 'classic') {
         hide(classicGameBoard)
     } else {
@@ -146,7 +142,7 @@ function resetBoard() {
         hide(chosenFightersDifficult)
         show(difficultGameBoard)
     }
-    show(navButtons)
+    show(changeGameButton)
     gameBoardHeading.innerText = 'Chose your fighter'
 }
 
