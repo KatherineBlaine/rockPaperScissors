@@ -42,6 +42,12 @@ main {
     background-color: antiquewhite;
 }
 
+.game-type-form {
+    display: flex;
+    width: 60vw;
+    justify-content: space-evenly !important;
+}
+
 .heading-1 {
     font-size: 75px;
     color:#097968;
@@ -54,13 +60,14 @@ main {
     justify-content: center;
     padding: 10px;
     height: 200px;
+    width: 275px;
     border-radius: 7px;
     background-color: #FFFFA7;
 }
 
-.version-selector-classic {
-    margin-right: 35px;
-    
+.version-selector:hover {
+    background-color:#C8A2C8;
+    color:#FFFFA7;
 }
 
 form {
@@ -110,6 +117,10 @@ p {
     width: 150px;
 }
 
+.fighter-icons:hover {
+    border: 5px solid #fcfcb0;
+}
+
 
 button {
     margin-bottom: 25px;
@@ -121,6 +132,10 @@ button {
     color:white;
     border-radius: 7px;
     font-size: 16px;
+}
+
+button:hover {
+    background-color: #19a48f;
 }
 
 .fighter-choices {
@@ -138,4 +153,9 @@ button {
 .choice-icon {
     height: 200px;
     width: 200px;
+}
+
+li {
+    list-style: none;
+    font-family: 'Sofia Sans';
 }

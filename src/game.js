@@ -1,13 +1,7 @@
 class Game {
-    constructor(classOrDiff) {
+    constructor() {
         this.playerOne = new Player('computer');
         this.playerTwo = new Player('human');
-        this.gameType = classOrDiff;
-        if (this.gameType === 'classic') {
-            this.rules = classicRules;
-        } else {
-            this.rules = difficultRules;
-        }
     }
 
     createGameBoard(humanChoice) {
@@ -32,5 +26,16 @@ class Game {
             return 'You tied!';
         }
     }
+
+    chooseGameMode(classOrDiff) {
+        this.gameType = classOrDiff;
+        if (this.gameType === 'classic') {
+            this.rules = classicRules;
+        } else {
+            this.rules = difficultRules;
+        }
+    }
+
+
 
 }
