@@ -34,6 +34,7 @@ class Game {
         } else {
             this.rules = difficultRules;
         }
+        return this.gameType;
     }
 
 
