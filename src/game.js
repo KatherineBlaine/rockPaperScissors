@@ -1,7 +1,7 @@
 class Game {
     constructor() {
         this.playerOne = new Player('computer');
-        this.playerTwo = new Player('human');
+        this.playerTwo = new Player(nameInput);
     }
 
     createGameBoard(humanChoice) {
@@ -36,7 +36,4 @@ class Game {
         }
         return this.gameType;
     }
-
-
-
 }

@@ -56,10 +56,23 @@ main {
     border: 5px solid #FFFFA7;
 }
 
-form {
+.game-type-form {
     display: flex;
     justify-content: space-evenly;
     width: 60vw;
+}
+
+.name-token-input {
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    border: 6px solid #fcfcb0;
+    padding: 30px;
+    align-items: center;
+}
+
+.start {
+    width: 100px;
 }
 
 li {
@@ -91,10 +104,14 @@ p {
     font-size: 30px;
 }
 
+.player-icon {
+    font-size: 50px;
+}
+
 .fighter-icons {
     margin-top: 50px;
-    height: 200px;
-    width: 200px;
+    height: 170px;
+    width: 170px;
 }
 
 button {
@@ -103,7 +120,7 @@ button {
     height: 45px;
     width: 175px;
     font-family: 'Sofia Sans';
-    background-color: #097968;
+    background-color: #12695c;
     color:white;
     border-radius: 7px;
     font-size: 16px;
@@ -127,7 +144,8 @@ button {
 }
 
 button:hover {
-    background-color: #19a48f;
+    background-color: white;
+    color: #12695c;
 }
 
 .fighter-icons:hover {

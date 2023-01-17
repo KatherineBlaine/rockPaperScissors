@@ -12,22 +12,29 @@
   <body>
     <main>
       <h1 class="heading-1">Rock Paper Scissors</h1>
-      <section class="game-board" id="game-board">
+      <form class="name-token-input" id="input-form">
+          <label for="name">Name</label>
+          <input class="name-input" type="text" id="name"/>
+          <label for="token">Token</label>
+          <input class="token-input" type="text" id="token"/>
+          <button class="start" id="start">START</button>
+      </form>
+      <section class="game-board hidden" id="game-board">
         <h1 id="game-board-heading">Choose your game</h1>
           <form class="game-type-form" id="game-type-form">
             <section class="version-selector classic" id="classic-selector">
               <h2 class="selector-headings classic" id="classic-version-heading">CLASSIC</h2>
-                <li class="classic">rock > scissors</li>
-                <li class="classic">paper > rock</li>
-                <li class="classic">scissors > paper</li>
+              <li class="classic">rock > scissors</li>
+              <li class="classic">paper > rock</li>
+              <li class="classic">scissors > paper</li>
             </section>
             <section class="version-selector difficult" id="difficult-selector">
               <h2 class="selector-headings difficult" id="difficult-version-heading">DIFFICULT</h2>
-                <li class="difficult">Wanda > Thor & Spiderman</li>
-                <li class="difficult">Captain Marvel > Wanda & Thor</li>
-                <li class="difficult">Spiderman > Hulk & Captain Marvel</li>
-                <li class="difficult">Thor > Spiderman & Hulk</li>
-                <li class="difficult">Hulk > Captain Marvel & Wanda</li>
+              <li class="difficult">Wanda > Thor & Spiderman</li>
+              <li class="difficult">Captain Marvel > Wanda & Thor</li>
+              <li class="difficult">Spiderman > Hulk & Captain Marvel</li>
+              <li class="difficult">Thor > Spiderman & Hulk</li>
+              <li class="difficult">Hulk > Captain Marvel & Wanda</li>
             </section>
           </form>
       </section>
@@ -49,11 +56,9 @@
     </main>
     <section class="win-counter" id="human-sidebar"></section>
     <section class="win-counter" id="comp-sidebar"></section>
-
     <script type="text/javascript" src="./src/data.js"></script>
     <script type="text/javascript" src="./src/player.js"></script>
     <script type="text/javascript" src="./src/game.js"></script>
     <script type="text/javascript" src="./src/main.js"></script> 
-</body>
-
+  </body>
 </html>
