@@ -26,11 +26,17 @@ var fighterIcons = document.querySelectorAll('.fighter-icons');
 var gameBoards = document.getElementById('game-boards');
 
 // Event listeners:
-// startButton.addEventListener('click')
 startButton.addEventListener('click', function(event) {
-    logInputs(event)
-    displayGameBoard()
-    displayPlayerProfiles()
+    preventDefault(event)})
+startButton.addEventListener('click', function() {
+    storeInput(name)
+    storeInput(token)
+    if ((nameValue !== '' && tokenValue !== '')) {
+        displayGameBoard()
+        displayPlayerProfiles()
+    } else {
+        showErrorMessage()
+    }
 });
 gameTypeForm.addEventListener('click', function(event) {
     newGame(event)
@@ -45,17 +51,36 @@ gameBoards.addEventListener('click', function(event){
 
 // Event handlers and functions:
 
-function logInputs(event) {
+function preventDefault(event) {
     event.preventDefault()
+}
+
+function storeInput(input) {
+    `${input}` = 
+}
+
+function logName() {
     nameValue = nameInput.value;
+    if (nameValue !== '') {
+        return nameValue;
+    }
+}
+
+function logToken() {
     tokenValue = tokenInput.value;
+    if(tokenValue !== '')
+    return tokenValue;
+}
+
+function showErrorMessage() {
+    inputForm.innerHTML += "<p>Please complete all fields to play</p>"
 }
 
 function displayGameBoard() {
-    currentGame = new Game();
-    hide(inputForm);
-    show(gameBoard);
-}
+        currentGame = new Game();
+        hide(inputForm);
+        show(gameBoard);
+    }
 
 function displayPlayerProfiles() {
    humanProfile.innerHTML = `
