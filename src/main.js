@@ -5,38 +5,37 @@ var currentGame;
 var currentGameMode;
 
 // DOM elements:
-
-var gameBoard = document.getElementById('game-board')
 var gameTypeForm = document.getElementById('game-type-form');
 var gameBoardHeading = document.getElementById('game-board-heading');
 var compProfile = document.getElementById('comp-sidebar');
 var humanProfile = document.getElementById('human-sidebar');
 
-var changeGameButton;
 var classicGameBoard = document.getElementById('classic-game-board');
 var difficultGameBoard = document.getElementById('difficult-game-board');
 var chosenFighters = document.getElementById('fighter-choices');
 var fighterIcons = document.querySelectorAll('.fighter-icons');
 var gameBoards = document.getElementById('game-boards');
+var changeGameButton;
 
 // Event listeners:
 window.addEventListener('load', function() {
     currentGame = new Game();
-    displayPlayerProfiles()})
+    displayPlayerProfiles();
+});
 gameTypeForm.addEventListener('click', function(event) {
-        newGame(event)
-    });
+    newGame(event);
+});
 humanProfile.addEventListener('click', function(event){
-    showGameModeList(event)});
+    showGameModeList(event);
+});
 gameBoards.addEventListener('click', function(event){
     displayHumanFighter(event);
-    displayCompFighter(event)
+    displayCompFighter(event);
     displayFighterBoard(event);
     displayPlayerProfiles();
  });
 
 // Event handlers and functions:
-
 function displayPlayerProfiles() {
    humanProfile.innerHTML = `
    <section class="win-counter" id="human-sidebar">
@@ -75,13 +74,10 @@ function newGame(event) {
         show(changeGameButton);
         gameBoardHeading.innerText = 'Choose your fighter';
     }
-    console.log(currentGame.gameType)
-    console.log(currentGameMode)
     return currentGameMode;
 }
 
 function showGameModeList(event) {
-    console.log(currentGameMode)
     if (event.target.id === 'change-game-button' && currentGameMode === 'classic') {
         show(gameTypeForm);
         hide(classicGameBoard);
@@ -92,9 +88,9 @@ function showGameModeList(event) {
 }
 
 function displayFighterBoard(event) {
-    if (currentGame.gameType === 'classic' && event.target.className === 'fighter-icons') {
+    if (currentGameMode === 'classic' && event.target.className === 'fighter-icons') {
         hide(classicGameBoard);
-    } else if (currentGame.gameType === 'difficult' && event.target.className === 'fighter-icons'){
+    } else if (currentGameMode === 'difficult' && event.target.className === 'fighter-icons'){
         hide(difficultGameBoard);
     }
 }
@@ -103,9 +99,10 @@ function displayHumanFighter(event) {
     currentGame.createGameBoard(event.target.id);
     for (var i=0; i < fighterIcons.length; i++ ) {
         if (event.target.id === fighterIcons[i].id && event.target.className === 'fighter-icons') {
-           chosenFighters.innerHTML = `<section class="fighter-choice"> <p>${currentGame.playerTwo.token}</p> <img class="choice-icon" id="${event.target.id}"src="${event.target.src}" alt="${event.target.alt}"></section>`;
+           chosenFighters.innerHTML = `
+           <section class="fighter-choice"> <p>${currentGame.playerTwo.token}</p> <img class="choice-icon" id="${event.target.id}"src="${event.target.src}" alt="${event.target.alt}"></section>`;
            show(chosenFighters);
-        } 
+        }
     }
 }
 
@@ -113,7 +110,8 @@ function displayCompFighter(event) {
     var computerChoice = currentGame.playerOne.fighter;
     for (var i=0; i < fighterIcons.length; i++) {
         if (computerChoice === fighterIcons[i].id && event.target.className === 'fighter-icons') {
-            chosenFighters.innerHTML += `<section class="fighter-choice"><p>${currentGame.playerOne.token}</p> <img class="choice-icon" id="${computerChoice}"src="./assets/${computerChoice}.png" alt="${computerChoice.alt}"></section>`
+            chosenFighters.innerHTML += `
+            <section class="fighter-choice"><p>${currentGame.playerOne.token}</p> <img class="choice-icon" id="${computerChoice}"src="./assets/${computerChoice}.png" alt="${computerChoice.alt}"></section>`
             show(chosenFighters);
             gameBoardHeading.innerText = `${currentGame.playGame()}`;
             setTimeout(resetBoard, 1500);
@@ -121,21 +119,16 @@ function displayCompFighter(event) {
     }
 }
 
-function alertInvalidSelection(event) {
-    if (event.target.className !== 'fighter-icons') {
-        gameBoardHeading.innerText = 'Please select a valid fighter'
-    }
-}
 function updateWinCount() {
     compWinCount.innerText = `Wins: ${currentGame.playerOne.wins}`;
     humanWinCount.innerText = `Wins: ${currentGame.playerTwo.wins}`;
 }
 
 function resetBoard() {
-    if (currentGame.gameType === 'classic') {
+    if (currentGameMode === 'classic') {
         hide(chosenFighters);
         show(classicGameBoard);
-    } else if (currentGame.gameType === 'difficult') {
+    } else {
         hide(chosenFighters);
         show(difficultGameBoard);
     }
