@@ -2,160 +2,143 @@
 var classicFighters = ['rock', 'paper', 'scissors'];
 var heroFighters = ['wanda', 'thor', 'captainMarvel', 'hulk', 'spiderman'];
 var currentGame;
+var currentGameMode;
 
 // DOM elements:
 
-// Home page elements -
-var gameTypeForm = document.getElementById('game-type-form')
-var gameBoardHeading = document.getElementById('game-board-heading')
+var gameBoard = document.getElementById('game-board')
+var gameTypeForm = document.getElementById('game-type-form');
+var gameBoardHeading = document.getElementById('game-board-heading');
+var compProfile = document.getElementById('comp-sidebar');
+var humanProfile = document.getElementById('human-sidebar');
 
-// Game board elements -
-var classicGameBoard = document.getElementById('classic-game-board')
-var difficultGameBoard = document.getElementById('difficult-game-board')
-var navButtons = document.getElementById('nav')
-var changeGameButton = document.getElementById('change-game-button')
-var chosenFightersClassic = document.getElementById('classic-fighter-choices')
-var chosenFightersDifficult = document.getElementById('difficult-fighter-choices')
-var resetButton = document.getElementById('reset-game-button')
-var body = document.body
-
-// Sidebar Elements -
-var compProfile = document.getElementById('comp-sidebar')
-var humanProfile = document.getElementById('human-sidebar')
-// var compWinCount = document.getElementById('comp-win-counter');
-// var humanWinCount = document.getElementById('human-win-counter');
-
-// Test variables:
-var fighterIcons = document.querySelectorAll('.fighter-icons')
-var gameBoards = document.getElementById('game-boards')
-
-var selectorHeadings = document.querySelectorAll('.selector-headings')
-console.log(selectorHeadings)
-
+var changeGameButton;
+var classicGameBoard = document.getElementById('classic-game-board');
+var difficultGameBoard = document.getElementById('difficult-game-board');
+var chosenFighters = document.getElementById('fighter-choices');
+var fighterIcons = document.querySelectorAll('.fighter-icons');
+var gameBoards = document.getElementById('game-boards');
 
 // Event listeners:
 window.addEventListener('load', function() {
-    currentGame = new Game()
+    currentGame = new Game();
     displayPlayerProfiles()})
 gameTypeForm.addEventListener('click', function(event) {
-    newGame(event)
-    displayGameBoard()})
-changeGameButton.addEventListener('click', changeGameMode)
+        newGame(event)
+    });
+humanProfile.addEventListener('click', function(event){
+    showGameModeList(event)});
 gameBoards.addEventListener('click', function(event){
-    displayHumanFighter(event)
-    displayCompFighter()
-    displayFighterBoard()
-    displayPlayerProfiles()
-    setTimeout(resetBoard, 3000)
-    })
+    displayHumanFighter(event);
+    displayCompFighter(event)
+    displayFighterBoard(event);
+    displayPlayerProfiles();
+ });
 
-// Event handlers:
+// Event handlers and functions:
 
 function displayPlayerProfiles() {
    humanProfile.innerHTML = `
    <section class="win-counter" id="human-sidebar">
-   <p>${currentGame.playerTwo.token}</p>
+   <p class="player-icon">${currentGame.playerTwo.token}</p>
    <h2>${currentGame.playerTwo.name}</h2>
    <p id="human-win-counter">Wins: ${currentGame.playerTwo.wins}</p>
-   </section>`
+   <button class="change-game-button hidden" id="change-game-button">Change game mode</button></section>`
    compProfile.innerHTML =`
-   <section class="win-counter" id="comp-sidebar"><p>${currentGame.playerOne.token}</p>
+   <section class="win-counter" id="comp-sidebar"><p class="player-icon">${currentGame.playerOne.token}</p>
    <h2>${currentGame.playerOne.name}</h2>
    <p id="comp-win-counter">Wins: ${currentGame.playerOne.wins}</p>
-   </section>`
+   </section>`;
+   changeGameButton = document.getElementById('change-game-button');
 }
+
+function show(element) {
+    element.classList.remove("hidden");
+  }
+  
+  function hide(element) {
+    element.classList.add("hidden");
+  }
 
 function newGame(event) {
-    if (event.target.parentNode.id === 'classic-selector') {
-        currentGame.chooseGameMode('classic')
-    } else if (event.target.parentNode.id === 'difficult-selector'){
-        currentGame.chooseGameMode('difficult')
+    var eventClass = event.target.className;
+    if (eventClass.includes('classic')) {
+        currentGameMode = currentGame.chooseGameMode('classic');
+        show(classicGameBoard);
+        hide(gameTypeForm);
+        show(changeGameButton);
+        gameBoardHeading.innerText = 'Choose your fighter';
+    } else if (eventClass.includes('difficult')) {
+        currentGameMode = currentGame.chooseGameMode('difficult');
+        show(difficultGameBoard);
+        hide(gameTypeForm);
+        show(changeGameButton);
+        gameBoardHeading.innerText = 'Choose your fighter';
+    }
+    console.log(currentGame.gameType)
+    console.log(currentGameMode)
+    return currentGameMode;
+}
+
+function showGameModeList(event) {
+    console.log(currentGameMode)
+    if (event.target.id === 'change-game-button' && currentGameMode === 'classic') {
+        show(gameTypeForm);
+        hide(classicGameBoard);
+    } else if (event.target.id === 'change-game-button' && currentGameMode === 'difficult') {
+        show(gameTypeForm);
+        hide(difficultGameBoard);
     }
 }
 
-function displayGameBoard() {
-    if (currentGame.gameType === 'classic') {
-        show(classicGameBoard)
-    } else {
-        show(difficultGameBoard)
-    }
-    show(navButtons)
-    hide(gameTypeForm)
-    gameBoardHeading.innerText = 'Choose your fighter'
-}
-
-function changeGameMode() {
-    if (currentGame.gameType === 'classic') {
-        show(gameTypeForm)
-        hide(classicGameBoard)
-    } else {
-        show(gameTypeForm)
-        hide(difficultGameBoard)
-    }
-}
-
-function displayFighterBoard() {
-    hide(navButtons)
-    if (currentGame.gameType === 'classic') {
-        hide(classicGameBoard)
-    } else {
-        hide(difficultGameBoard)
+function displayFighterBoard(event) {
+    if (currentGame.gameType === 'classic' && event.target.className === 'fighter-icons') {
+        hide(classicGameBoard);
+    } else if (currentGame.gameType === 'difficult' && event.target.className === 'fighter-icons'){
+        hide(difficultGameBoard);
     }
 }
 
 function displayHumanFighter(event) {
-    currentGame.createGameBoard(event.target.id)
-    for (var i=0; i < fighterIcons.length; i++) {
-        if (event.target.id === fighterIcons[i].id && currentGame.gameType === 'classic') {
-           chosenFightersClassic.innerHTML = `<section class="fighter-choice"> <p>${currentGame.playerTwo.token}</p> <img class="choice-icon" id="${event.target.id}"src="${event.target.src}" alt="${event.target.alt}">
-           </section>`
-           show(chosenFightersClassic)
-        } else if (event.target.id === fighterIcons[i].id && currentGame.gameType === 'difficult'){
-            chosenFightersDifficult.innerHTML = `<section class="fighter-choice"> <p>${currentGame.playerTwo.token}</p>
-            <img class="choice-icon" id="${event.target.id}"src="${event.target.src}" alt="${event.target.alt}">
-            </section>`
-            show(chosenFightersDifficult)
-        }
-     }
+    currentGame.createGameBoard(event.target.id);
+    for (var i=0; i < fighterIcons.length; i++ ) {
+        if (event.target.id === fighterIcons[i].id && event.target.className === 'fighter-icons') {
+           chosenFighters.innerHTML = `<section class="fighter-choice"> <p>${currentGame.playerTwo.token}</p> <img class="choice-icon" id="${event.target.id}"src="${event.target.src}" alt="${event.target.alt}"></section>`;
+           show(chosenFighters);
+        } 
     }
-     
-function displayCompFighter() {
-    var computerChoice = currentGame.playerOne.fighter
-    for (var i=0; i < fighterIcons.length; i++) {
-        if (computerChoice === fighterIcons[i].id && currentGame.gameType === 'classic') {
-            chosenFightersClassic.innerHTML += `<section class="fighter-choice"><p>${currentGame.playerOne.token}</p> <img class="choice-icon" id="${computerChoice}"src="./assets/${computerChoice}.png" alt="${computerChoice.alt}"></section>`
-            show(chosenFightersClassic)
-        } else if (computerChoice === fighterIcons[i].id && currentGame.gameType === 'difficult') {
-            chosenFightersDifficult.innerHTML += `<section class="fighter-choice"><p>${currentGame.playerOne.token}</p> <img class="choice-icon" id="${computerChoice}"src="./assets/${computerChoice}.png" alt="${computerChoice.alt}"></section>`
-            show(chosenFightersDifficult)
-        }
-     }
-    gameBoardHeading.innerText = `${currentGame.playGame()}` 
 }
 
+function displayCompFighter(event) {
+    var computerChoice = currentGame.playerOne.fighter;
+    for (var i=0; i < fighterIcons.length; i++) {
+        if (computerChoice === fighterIcons[i].id && event.target.className === 'fighter-icons') {
+            chosenFighters.innerHTML += `<section class="fighter-choice"><p>${currentGame.playerOne.token}</p> <img class="choice-icon" id="${computerChoice}"src="./assets/${computerChoice}.png" alt="${computerChoice.alt}"></section>`
+            show(chosenFighters);
+            gameBoardHeading.innerText = `${currentGame.playGame()}`;
+            setTimeout(resetBoard, 1500);
+        }
+    }
+}
+
+function alertInvalidSelection(event) {
+    if (event.target.className !== 'fighter-icons') {
+        gameBoardHeading.innerText = 'Please select a valid fighter'
+    }
+}
 function updateWinCount() {
-    compWinCount.innerText = `Wins: ${currentGame.playerOne.wins}`
-    humanWinCount.innerText = `Wins: ${currentGame.playerTwo.wins}`
+    compWinCount.innerText = `Wins: ${currentGame.playerOne.wins}`;
+    humanWinCount.innerText = `Wins: ${currentGame.playerTwo.wins}`;
 }
 
 function resetBoard() {
     if (currentGame.gameType === 'classic') {
-        hide(chosenFightersClassic)
-        show(classicGameBoard)
+        hide(chosenFighters);
+        show(classicGameBoard);
     } else if (currentGame.gameType === 'difficult') {
-        hide(chosenFightersDifficult)
-        show(difficultGameBoard)
+        hide(chosenFighters);
+        show(difficultGameBoard);
     }
-    show(navButtons)
-    gameBoardHeading.innerText = 'Chose your fighter'
+    show(changeGameButton)
+    gameBoardHeading.innerText = 'Choose your fighter';
 }
-
-// Hide and Show functions:
-
-function show(element) {
-    element.classList.remove("hidden");
-  };
-  
-  function hide(element) {
-    element.classList.add("hidden");
-  };
