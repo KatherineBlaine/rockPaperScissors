@@ -11,12 +11,6 @@ var gameTypeForm = document.getElementById('game-type-form');
 var gameBoardHeading = document.getElementById('game-board-heading');
 var compProfile = document.getElementById('comp-sidebar');
 var humanProfile = document.getElementById('human-sidebar');
-var startButton = document.getElementById('start');
-var inputForm = document.getElementById('input-form')
-var nameInput = document.getElementById('name')
-var tokenInput = document.getElementById('token')
-var nameValue;
-var tokenValue;
 
 var changeGameButton;
 var classicGameBoard = document.getElementById('classic-game-board');
@@ -26,61 +20,22 @@ var fighterIcons = document.querySelectorAll('.fighter-icons');
 var gameBoards = document.getElementById('game-boards');
 
 // Event listeners:
-startButton.addEventListener('click', function(event) {
-    preventDefault(event)})
-startButton.addEventListener('click', function() {
-    storeInput(name)
-    storeInput(token)
-    if ((nameValue !== '' && tokenValue !== '')) {
-        displayGameBoard()
-        displayPlayerProfiles()
-    } else {
-        showErrorMessage()
-    }
-});
+window.addEventListener('load', function() {
+    currentGame = new Game();
+    displayPlayerProfiles()})
 gameTypeForm.addEventListener('click', function(event) {
-    newGame(event)
-});
+        newGame(event)
+    });
+humanProfile.addEventListener('click', function(event){
+    showGameModeList(event)});
 gameBoards.addEventListener('click', function(event){
     displayHumanFighter(event);
     displayCompFighter(event)
-    alertInvalidSelection(event)
     displayFighterBoard(event);
     displayPlayerProfiles();
  });
 
 // Event handlers and functions:
-
-function preventDefault(event) {
-    event.preventDefault()
-}
-
-function storeInput(input) {
-    `${input}` = 
-}
-
-function logName() {
-    nameValue = nameInput.value;
-    if (nameValue !== '') {
-        return nameValue;
-    }
-}
-
-function logToken() {
-    tokenValue = tokenInput.value;
-    if(tokenValue !== '')
-    return tokenValue;
-}
-
-function showErrorMessage() {
-    inputForm.innerHTML += "<p>Please complete all fields to play</p>"
-}
-
-function displayGameBoard() {
-        currentGame = new Game();
-        hide(inputForm);
-        show(gameBoard);
-    }
 
 function displayPlayerProfiles() {
    humanProfile.innerHTML = `
@@ -95,9 +50,6 @@ function displayPlayerProfiles() {
    <p id="comp-win-counter">Wins: ${currentGame.playerOne.wins}</p>
    </section>`;
    changeGameButton = document.getElementById('change-game-button');
-   humanProfile.addEventListener('click', function(event){
-    showGameModeList(event);
-   })
 }
 
 function show(element) {
@@ -123,10 +75,13 @@ function newGame(event) {
         show(changeGameButton);
         gameBoardHeading.innerText = 'Choose your fighter';
     }
+    console.log(currentGame.gameType)
+    console.log(currentGameMode)
     return currentGameMode;
 }
 
 function showGameModeList(event) {
+    console.log(currentGameMode)
     if (event.target.id === 'change-game-button' && currentGameMode === 'classic') {
         show(gameTypeForm);
         hide(classicGameBoard);

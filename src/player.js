@@ -1,20 +1,19 @@
 class Player {
     constructor(name) {
+        this.name = name;
         this.wins = 0;
-        if (name === 'computer') {
+        if (name === 'human') {
+            this.token = '👩🏻‍🦱';
+        } else if (name === 'computer') {
             this.token = '🖥';
-            this.name = name;
-        } else {
-            this.name = nameValue;
-            this.token = tokenValue;
         }
     }
 
     takeTurn(humanChoice, compArray) {
-       if (this.name === 'computer') {
-            this.fighter = compArray[[Math.floor(Math.random() * compArray.length)]];
-        } else {
+        if (this.name === 'human') {
             this.fighter = humanChoice;
+        } else if (this.name === 'computer') {
+            this.fighter = compArray[[Math.floor(Math.random() * compArray.length)]];
         }
     }
 }

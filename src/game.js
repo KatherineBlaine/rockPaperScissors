@@ -1,7 +1,7 @@
 class Game {
     constructor() {
         this.playerOne = new Player('computer');
-        this.playerTwo = new Player(nameInput);
+        this.playerTwo = new Player('human');
     }
 
     createGameBoard(humanChoice) {
@@ -31,9 +31,11 @@ class Game {
         this.gameType = classOrDiff;
         if (this.gameType === 'classic') {
             this.rules = classicRules;
-        } else if (this.gameType === 'difficult'){
+        } else {
             this.rules = difficultRules;
         }
-        return this.gameType;
     }
+
+
+
 }
