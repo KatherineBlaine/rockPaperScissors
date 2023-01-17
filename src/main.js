@@ -35,7 +35,7 @@ gameBoards.addEventListener('click', function(event){
     displayPlayerProfiles();
  });
 
-// Event handlers and functions:
+// All functions and event handlers:
 function displayPlayerProfiles() {
    humanProfile.innerHTML = `
    <section class="win-counter" id="human-sidebar">
@@ -50,14 +50,6 @@ function displayPlayerProfiles() {
    </section>`;
    changeGameButton = document.getElementById('change-game-button');
 }
-
-function show(element) {
-    element.classList.remove("hidden");
-  }
-  
-  function hide(element) {
-    element.classList.add("hidden");
-  }
 
 function newGame(event) {
     var eventClass = event.target.className;
@@ -77,20 +69,20 @@ function newGame(event) {
     return currentGameMode;
 }
 
+function show(element) {
+    element.classList.remove("hidden");
+  }
+  
+  function hide(element) {
+    element.classList.add("hidden");
+  }
+
 function showGameModeList(event) {
     if (event.target.id === 'change-game-button' && currentGameMode === 'classic') {
         show(gameTypeForm);
         hide(classicGameBoard);
     } else if (event.target.id === 'change-game-button' && currentGameMode === 'difficult') {
         show(gameTypeForm);
-        hide(difficultGameBoard);
-    }
-}
-
-function displayFighterBoard(event) {
-    if (currentGameMode === 'classic' && event.target.className === 'fighter-icons') {
-        hide(classicGameBoard);
-    } else if (currentGameMode === 'difficult' && event.target.className === 'fighter-icons'){
         hide(difficultGameBoard);
     }
 }
@@ -119,11 +111,6 @@ function displayCompFighter(event) {
     }
 }
 
-function updateWinCount() {
-    compWinCount.innerText = `Wins: ${currentGame.playerOne.wins}`;
-    humanWinCount.innerText = `Wins: ${currentGame.playerTwo.wins}`;
-}
-
 function resetBoard() {
     if (currentGameMode === 'classic') {
         hide(chosenFighters);
@@ -134,4 +121,12 @@ function resetBoard() {
     }
     show(changeGameButton)
     gameBoardHeading.innerText = 'Choose your fighter';
+}
+
+function displayFighterBoard(event) {
+    if (currentGameMode === 'classic' && event.target.className === 'fighter-icons') {
+        hide(classicGameBoard);
+    } else if (currentGameMode === 'difficult' && event.target.className === 'fighter-icons'){
+        hide(difficultGameBoard);
+    }
 }
