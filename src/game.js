@@ -36,7 +36,4 @@ class Game {
         }
         return this.gameType;
     }
-
-
-
 }
